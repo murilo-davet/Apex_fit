@@ -1,0 +1,468 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #0d0d0d;
+  color: #fff;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 10%;
+  background: #111;
+  border-bottom: 1px solid #222;
+}
+
+.logo {
+  color: #fff;
+  font-size: 24px;
+  font-weight: bold;
+  text-decoration: none;
+  letter-spacing: 1px;
+}
+
+.logo span {
+  color: #a855f7;
+}
+
+nav {
+  display: flex;
+  gap: 30px;
+}
+
+nav a {
+  text-decoration: none;
+  color: #ccc;
+  transition: 0.3s;
+}
+
+nav a:hover {
+  color: #facc15;
+}
+
+/* =========================
+   BOTÕES
+========================= */
+
+.btn {
+  display: inline-block;
+  background: linear-gradient(45deg, #facc15, #a855f7);
+  border: none;
+  padding: 12px 24px;
+  color: #000;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(168, 85, 247, 0.25);
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+  height: 80vh;
+  min-height: 550px;
+  position: relative;
+  background:
+    url("https://images.unsplash.com/photo-1558611848-73f7eb4001a1")
+    no-repeat center/cover;
+  display: flex;
+  align-items: center;
+  padding: 0 10%;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0.9),
+      rgba(0, 0, 0, 0.45),
+      rgba(0, 0, 0, 0.2)
+    );
+}
+
+.hero-text {
+  position: relative;
+  z-index: 2;
+  max-width: 650px;
+}
+
+.tag,
+.plan-label {
+  color: #facc15;
+  font-size: 13px;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+.hero-text h1 {
+  margin-top: 15px;
+  font-size: 56px;
+  line-height: 1.1;
+}
+
+.hero-text h1 span {
+  color: #facc15;
+}
+
+.hero-text p {
+  margin: 25px 0;
+  color: #ddd;
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+/* =========================
+   PLANOS
+========================= */
+
+.planos {
+  padding: 80px 10%;
+  text-align: center;
+}
+
+.planos h2 {
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+
+.section-subtitle {
+  color: #999;
+  margin-bottom: 45px;
+}
+
+.cards {
+  display: flex;
+  gap: 25px;
+  justify-content: center;
+  align-items: stretch;
+  flex-wrap: wrap;
+}
+
+.card {
+  background: #111;
+  border: 1px solid #252525;
+  padding: 35px 25px;
+  width: 280px;
+  border-radius: 12px;
+  transition: 0.3s;
+  text-align: left;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  border-color: #a855f7;
+}
+
+.card h3 {
+  font-size: 28px;
+  margin: 10px 0;
+}
+
+.price {
+  font-size: 27px;
+  font-weight: bold;
+  color: #fff;
+  margin-bottom: 25px;
+}
+
+.price span {
+  font-size: 14px;
+  color: #999;
+  font-weight: normal;
+}
+
+.card ul {
+  list-style: none;
+  margin-bottom: 30px;
+}
+
+.card ul li {
+  margin: 12px 0;
+  color: #ccc;
+}
+
+.card .btn {
+  width: 100%;
+  text-align: center;
+}
+
+.destaque {
+  border: 2px solid #facc15;
+  transform: translateY(-10px);
+}
+
+.destaque:hover {
+  transform: translateY(-15px);
+}
+
+/* =========================
+   PÁGINAS DOS PLANOS
+========================= */
+
+.plan-page {
+  min-height: calc(100vh - 85px);
+  padding: 70px 10%;
+  display: grid;
+  grid-template-columns: 1fr 480px;
+  align-items: center;
+  gap: 80px;
+}
+
+.basic-page {
+  background:
+    radial-gradient(
+      circle at 15% 50%,
+      rgba(250, 204, 21, 0.08),
+      transparent 35%
+    );
+}
+
+.pro-page {
+  background:
+    radial-gradient(
+      circle at 15% 50%,
+      rgba(168, 85, 247, 0.15),
+      transparent 40%
+    );
+}
+
+.premium-page {
+  background:
+    radial-gradient(
+      circle at 15% 50%,
+      rgba(250, 204, 21, 0.13),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 80% 30%,
+      rgba(168, 85, 247, 0.12),
+      transparent 35%
+    );
+}
+
+.plan-info {
+  max-width: 650px;
+}
+
+.plan-info h1 {
+  font-size: 72px;
+  margin: 15px 0;
+}
+
+.big-price {
+  color: #facc15;
+  font-size: 35px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.big-price small {
+  color: #aaa;
+  font-size: 16px;
+}
+
+.plan-info > p:not(.big-price) {
+  color: #bbb;
+  font-size: 18px;
+  line-height: 1.7;
+  max-width: 550px;
+}
+
+.benefits {
+  margin-top: 35px;
+}
+
+.benefits h3 {
+  font-size: 20px;
+  margin-bottom: 15px;
+}
+
+.benefits div {
+  color: #ccc;
+  margin: 12px 0;
+}
+
+/* =========================
+   FORMULÁRIO
+========================= */
+
+.form-container {
+  background: rgba(17, 17, 17, 0.95);
+  border: 1px solid #292929;
+  border-radius: 14px;
+  padding: 35px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+}
+
+.form-container h2 {
+  font-size: 28px;
+  margin-bottom: 8px;
+}
+
+.form-container > p {
+  color: #888;
+  font-size: 14px;
+  margin-bottom: 25px;
+  line-height: 1.5;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+form label {
+  color: #ddd;
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 7px;
+}
+
+form input {
+  width: 100%;
+  padding: 13px 14px;
+  margin-bottom: 18px;
+  background: #0c0c0c;
+  border: 1px solid #333;
+  border-radius: 6px;
+  color: #fff;
+  outline: none;
+  transition: 0.3s;
+}
+
+form input:focus {
+  border-color: #a855f7;
+  box-shadow: 0 0 0 2px rgba(168, 85, 247, 0.1);
+}
+
+form input::placeholder {
+  color: #666;
+}
+
+.form-btn {
+  width: 100%;
+  margin-top: 5px;
+  font-size: 15px;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+  text-align: center;
+  padding: 25px;
+  background: #111;
+  border-top: 1px solid #222;
+}
+
+footer p {
+  color: #777;
+  font-size: 14px;
+}
+
+/* =========================
+   RESPONSIVIDADE
+========================= */
+
+@media (max-width: 900px) {
+
+  header {
+    padding: 20px 5%;
+  }
+
+  .plan-page {
+    grid-template-columns: 1fr;
+    padding: 60px 5%;
+    gap: 50px;
+  }
+
+  .plan-info {
+    max-width: 100%;
+  }
+
+  .form-container {
+    width: 100%;
+    max-width: 600px;
+    margin: auto;
+  }
+
+}
+
+@media (max-width: 650px) {
+
+  header {
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  nav {
+    order: 3;
+    width: 100%;
+    justify-content: center;
+    gap: 20px;
+  }
+
+  header > .btn {
+    display: none;
+  }
+
+  .hero {
+    min-height: 600px;
+    padding: 0 7%;
+  }
+
+  .hero-text h1 {
+    font-size: 40px;
+  }
+
+  .planos {
+    padding: 60px 5%;
+  }
+
+  .card {
+    width: 100%;
+    max-width: 380px;
+  }
+
+  .destaque {
+    transform: none;
+  }
+
+  .plan-info h1 {
+    font-size: 55px;
+  }
+
+  .big-price {
+    font-size: 28px;
+  }
+
+  .form-container {
+    padding: 25px 20px;
+  }
+
+}

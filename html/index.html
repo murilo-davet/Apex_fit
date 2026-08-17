@@ -3,70 +3,95 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Apex Fit</title>
-    <link rel="stylesheet" href="style.css" />
+    <title>Apex Fit | Academia</title>
+    <link rel="stylesheet" href="../style_planos_index.css" />
   </head>
+
   <body>
-    <!-- HEADER -->
     <header>
       <div class="logo">APEX <span>FIT</span></div>
+
       <nav>
+        <a href="index.html">Início</a>
         <a href="#planos">Planos</a>
-        <a href="unidades.html">Unidades</a>
-        <a href="contato.html">Contato</a>
+        <a href="#contato">Contato</a>
       </nav>
-      <button class="btn" id="matricula">Matricule-se</button>
+
+      <a href="pro.html" class="btn">Matricule-se</a>
     </header>
 
-    <!-- HERO -->
     <section class="hero">
+      <div class="hero-overlay"></div>
+
       <div class="hero-text">
+        <span class="tag">APEX FIT</span>
+
         <h1>Seu corpo no <span>nível máximo</span></h1>
-        <p>Treine com estrutura premium e alcance resultados reais.</p>
-        <button class="btn" onclick="irParaPlanos()">Começar agora</button>
+
+        <p>
+          Treine com estrutura premium, equipamentos modernos e alcance
+          resultados reais.
+        </p>
+
+        <a href="#planos" class="btn">Conheça nossos planos</a>
       </div>
     </section>
 
-    <!-- PLANOS -->
     <section class="planos" id="planos">
       <h2>Nossos Planos</h2>
+      <p class="section-subtitle">
+        Escolha o plano ideal para alcançar seus objetivos.
+      </p>
+
       <div class="cards">
-        <div class="card">
+        <div class="card basic-card">
+          <span class="plan-label">ESSENCIAL</span>
           <h3>Basic</h3>
-          <p>R$ 59,90/mês</p>
+          <p class="price">R$ 59,90<span>/mês</span></p>
+
           <ul>
-            <li>Acesso a 1 unidade</li>
-            <li>Área de musculação</li>
+            <li>✓ Acesso a 1 unidade</li>
+            <li>✓ Área de musculação</li>
+            <li>✓ Equipamentos modernos</li>
           </ul>
-          <button class="btn" id="plano_basico">Assinar</button>
+
+          <a href="basic.html" class="btn">Conhecer Basic</a>
         </div>
 
-        <div class="card destaque">
+        <div class="card destaque pro-card">
+          <span class="plan-label">MAIS POPULAR</span>
           <h3>Pro</h3>
-          <p>R$ 89,90/mês</p>
+          <p class="price">R$ 89,90<span>/mês</span></p>
+
           <ul>
-            <li>Todas unidades</li>
-            <li>Aulas inclusas</li>
+            <li>✓ Todas as unidades</li>
+            <li>✓ Aulas inclusas</li>
+            <li>✓ Área de musculação</li>
+            <li>✓ Equipamentos premium</li>
           </ul>
-          <button class="btn" id="plano_pro">Assinar</button>
+
+          <a href="pro.html" class="btn">Conhecer Pro</a>
         </div>
 
-        <div class="card">
+        <div class="card premium-card">
+          <span class="plan-label">EXCLUSIVO</span>
           <h3>Premium</h3>
-          <p>R$ 119,90/mês</p>
+          <p class="price">R$ 119,90<span>/mês</span></p>
+
           <ul>
-            <li>Tudo do Pro</li>
-            <li>Personal trainer</li>
+            <li>✓ Tudo do plano Pro</li>
+            <li>✓ Personal trainer</li>
+            <li>✓ Atendimento exclusivo</li>
+            <li>✓ Experiência premium</li>
           </ul>
-          <button class="btn" id="plano_premium">Assinar</button>
+
+          <a href="premium.html" class="btn">Conhecer Premium</a>
         </div>
       </div>
     </section>
 
-    <!-- FOOTER -->
-    <footer>
+    <footer id="contato">
       <p>© 2026 Apex Fit - Todos os direitos reservados</p>
     </footer>
-    <script src="script.js"></script>
   </body>
 </html>
