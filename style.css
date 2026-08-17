@@ -1,0 +1,433 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background-color: #0d0d0d;
+  color: #fff;
+}
+
+/* ========================= */
+/* HEADER */
+/* ========================= */
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 20px 10%;
+
+  background: #111;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.logo span {
+  color: #a855f7;
+}
+
+nav a {
+  margin: 0 15px;
+
+  text-decoration: none;
+
+  color: #ccc;
+
+  transition: 0.3s;
+}
+
+nav a:hover {
+  color: #fff;
+}
+
+/* ========================= */
+/* BOTÃO */
+/* ========================= */
+
+.btn {
+  display: inline-block;
+
+  background: linear-gradient(45deg, #facc15, #a855f7);
+
+  border: none;
+
+  padding: 10px 20px;
+
+  color: #000;
+
+  font-weight: bold;
+
+  cursor: pointer;
+
+  border-radius: 5px;
+
+  text-decoration: none;
+
+  transition: 0.3s;
+}
+
+.btn:hover {
+  transform: scale(1.05);
+}
+
+/* ========================= */
+/* HERO */
+/* ========================= */
+
+.hero {
+  height: 80vh;
+
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)),
+    url("https://images.unsplash.com/photo-1558611848-73f7eb4001a1") no-repeat
+      center/cover;
+
+  display: flex;
+
+  align-items: center;
+
+  padding: 0 10%;
+}
+
+.hero-text {
+  max-width: 600px;
+}
+
+.hero-text h1 {
+  font-size: 48px;
+}
+
+.hero-text span {
+  color: #facc15;
+}
+
+.hero-text p {
+  margin: 20px 0;
+
+  color: #ccc;
+
+  font-size: 18px;
+}
+
+/* ========================= */
+/* PLANOS */
+/* ========================= */
+
+.planos {
+  padding: 60px 10%;
+
+  text-align: center;
+}
+
+.planos h2 {
+  margin-bottom: 40px;
+
+  font-size: 35px;
+}
+
+.cards {
+  display: flex;
+
+  gap: 20px;
+
+  justify-content: center;
+
+  flex-wrap: wrap;
+}
+
+.card {
+  background: #111;
+
+  padding: 25px;
+
+  width: 280px;
+
+  border-radius: 10px;
+
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+}
+
+.card h3 {
+  margin-bottom: 10px;
+
+  font-size: 25px;
+}
+
+.card p {
+  font-size: 20px;
+
+  margin-bottom: 15px;
+}
+
+.card ul {
+  list-style: none;
+
+  margin-bottom: 20px;
+}
+
+.card ul li {
+  margin: 8px 0;
+
+  color: #ccc;
+}
+
+.destaque {
+  border: 2px solid #facc15;
+
+  transform: scale(1.05);
+}
+
+.destaque:hover {
+  transform: scale(1.08);
+}
+
+/* ========================= */
+/* PÁGINA DE PLANOS */
+/* ========================= */
+
+.titulo-planos {
+  text-align: center;
+
+  padding: 80px 20px 40px;
+}
+
+.titulo-planos h1 {
+  font-size: 45px;
+
+  margin-bottom: 15px;
+}
+
+.titulo-planos h1 span {
+  color: #facc15;
+}
+
+.titulo-planos p {
+  color: #ccc;
+
+  font-size: 18px;
+}
+
+/* ========================= */
+/* BOTÃO VOLTAR */
+/* ========================= */
+
+.voltar {
+  text-align: center;
+
+  margin: 30px 0 60px;
+}
+
+/* ========================= */
+/* FOOTER */
+/* ========================= */
+
+footer {
+  text-align: center;
+
+  padding: 20px;
+
+  background: #111;
+
+  margin-top: 40px;
+
+  color: #aaa;
+}
+
+/* ========================= */
+/* RESPONSIVO */
+/* ========================= */
+
+@media (max-width: 700px) {
+  header {
+    flex-direction: column;
+
+    gap: 15px;
+  }
+
+  .hero {
+    height: 70vh;
+
+    padding: 0 5%;
+  }
+
+  .hero-text h1 {
+    font-size: 35px;
+  }
+
+  .cards {
+    flex-direction: column;
+
+    align-items: center;
+  }
+
+  .card {
+    width: 90%;
+
+    max-width: 350px;
+  }
+
+  .destaque {
+    transform: none;
+  }
+
+  .destaque:hover {
+    transform: translateY(-10px);
+  }
+}
+
+/* ========================= */
+/* PÁGINA DE UNIDADES */
+/* ========================= */
+
+.titulo-unidades {
+  text-align: center;
+  padding: 80px 20px 40px;
+}
+
+.titulo-unidades h1 {
+  font-size: 45px;
+  margin-bottom: 15px;
+}
+
+.titulo-unidades h1 span {
+  color: #facc15;
+}
+
+.titulo-unidades p {
+  color: #ccc;
+  font-size: 18px;
+}
+
+.unidades {
+  padding: 40px 10% 60px;
+}
+
+.unidade {
+  min-height: 300px;
+}
+
+.unidade p {
+  font-size: 15px;
+  color: #ccc;
+  margin: 15px 0;
+}
+
+.unidade .btn {
+  margin-top: 10px;
+}
+
+/* ========================= */
+/* PÁGINA DE CONTATO */
+/* ========================= */
+
+.titulo-contato {
+  text-align: center;
+  padding: 80px 20px 40px;
+}
+
+.titulo-contato h1 {
+  font-size: 45px;
+  margin-bottom: 15px;
+}
+
+.titulo-contato h1 span {
+  color: #facc15;
+}
+
+.titulo-contato p {
+  color: #ccc;
+  font-size: 18px;
+}
+
+/* INFORMAÇÕES */
+
+.contato {
+  padding: 30px 10% 70px;
+}
+
+.contato-cards {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.contato-card {
+  width: 280px;
+  min-height: 220px;
+}
+
+.contato-card h3 {
+  margin-bottom: 20px;
+}
+
+.contato-card p {
+  font-size: 15px;
+  color: #ccc;
+  margin: 10px 0;
+}
+
+/* FORMULÁRIO */
+
+.formulario {
+  max-width: 600px;
+  margin: 60px auto 0;
+  background: #111;
+  padding: 30px;
+  border-radius: 10px;
+}
+
+.formulario h2 {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.formulario form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.formulario input,
+.formulario textarea {
+  width: 100%;
+  padding: 15px;
+
+  background: #1a1a1a;
+
+  border: 1px solid #333;
+
+  border-radius: 5px;
+
+  color: #fff;
+
+  font-size: 15px;
+}
+
+.formulario textarea {
+  resize: vertical;
+}
+
+.formulario input:focus,
+.formulario textarea:focus {
+  outline: none;
+  border-color: #facc15;
+}
+
+.formulario .btn {
+  align-self: center;
+}
+html {
+  scroll-behavior: smooth;
+}

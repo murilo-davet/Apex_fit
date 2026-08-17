@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Apex Fit</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- HEADER -->
+    <header>
+      <div class="logo">APEX <span>FIT</span></div>
+      <nav>
+        <a href="#planos">Planos</a>
+        <a href="unidades.html">Unidades</a>
+        <a href="contato.html">Contato</a>
+      </nav>
+      <button class="btn" id="matricula">Matricule-se</button>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-text">
+        <h1>Seu corpo no <span>nível máximo</span></h1>
+        <p>Treine com estrutura premium e alcance resultados reais.</p>
+        <button class="btn" onclick="irParaPlanos()">Começar agora</button>
+      </div>
+    </section>
+
+    <!-- PLANOS -->
+    <section class="planos" id="planos">
+      <h2>Nossos Planos</h2>
+      <div class="cards">
+        <div class="card">
+          <h3>Basic</h3>
+          <p>R$ 59,90/mês</p>
+          <ul>
+            <li>Acesso a 1 unidade</li>
+            <li>Área de musculação</li>
+          </ul>
+          <button class="btn" id="plano_basico">Assinar</button>
+        </div>
+
+        <div class="card destaque">
+          <h3>Pro</h3>
+          <p>R$ 89,90/mês</p>
+          <ul>
+            <li>Todas unidades</li>
+            <li>Aulas inclusas</li>
+          </ul>
+          <button class="btn" id="plano_pro">Assinar</button>
+        </div>
+
+        <div class="card">
+          <h3>Premium</h3>
+          <p>R$ 119,90/mês</p>
+          <ul>
+            <li>Tudo do Pro</li>
+            <li>Personal trainer</li>
+          </ul>
+          <button class="btn" id="plano_premium">Assinar</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <p>© 2026 Apex Fit - Todos os direitos reservados</p>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>
