@@ -25,6 +25,9 @@ header {
   padding: 20px 10%;
   background: #111;
   border-bottom: 1px solid #222;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
 .logo {
@@ -84,8 +87,7 @@ nav a:hover {
   height: 80vh;
   min-height: 550px;
   position: relative;
-  background:
-    url("https://images.unsplash.com/photo-1558611848-73f7eb4001a1")
+  background: url("https://images.unsplash.com/photo-1558611848-73f7eb4001a1")
     no-repeat center/cover;
   display: flex;
   align-items: center;
@@ -95,13 +97,12 @@ nav a:hover {
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background:
-    linear-gradient(
-      90deg,
-      rgba(0, 0, 0, 0.9),
-      rgba(0, 0, 0, 0.45),
-      rgba(0, 0, 0, 0.2)
-    );
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0.9),
+    rgba(0, 0, 0, 0.45),
+    rgba(0, 0, 0, 0.2)
+  );
 }
 
 .hero-text {
@@ -233,21 +234,19 @@ nav a:hover {
 }
 
 .basic-page {
-  background:
-    radial-gradient(
-      circle at 15% 50%,
-      rgba(250, 204, 21, 0.08),
-      transparent 35%
-    );
+  background: radial-gradient(
+    circle at 15% 50%,
+    rgba(250, 204, 21, 0.08),
+    transparent 35%
+  );
 }
 
 .pro-page {
-  background:
-    radial-gradient(
-      circle at 15% 50%,
-      rgba(168, 85, 247, 0.15),
-      transparent 40%
-    );
+  background: radial-gradient(
+    circle at 15% 50%,
+    rgba(168, 85, 247, 0.15),
+    transparent 40%
+  );
 }
 
 .premium-page {
@@ -390,7 +389,6 @@ footer p {
 ========================= */
 
 @media (max-width: 900px) {
-
   header {
     padding: 20px 5%;
   }
@@ -410,11 +408,9 @@ footer p {
     max-width: 600px;
     margin: auto;
   }
-
 }
 
 @media (max-width: 650px) {
-
   header {
     flex-wrap: wrap;
     gap: 20px;
@@ -464,5 +460,4 @@ footer p {
   .form-container {
     padding: 25px 20px;
   }
-
 }
