@@ -1,11 +1,3 @@
-// ==========================================
-// APEX FIT - JAVASCRIPT
-// ==========================================
-
-// ==============================
-// PLANOS
-// ==============================
-
 function escolherPlano(nomePlano, preco) {
   alert(
     "APEX FIT\n\n" +
@@ -17,10 +9,6 @@ function escolherPlano(nomePlano, preco) {
   );
 }
 
-// ==============================
-// UNIDADES
-// ==============================
-
 function selecionarUnidade(nomeUnidade) {
   alert(
     "APEX FIT\n\n" +
@@ -30,10 +18,7 @@ function selecionarUnidade(nomeUnidade) {
   );
 }
 
-// ==============================
 // EFEITO DOS CARDS
-// ==============================
-
 const cards = document.querySelectorAll(".card");
 
 cards.forEach(function (card) {
@@ -46,10 +31,7 @@ cards.forEach(function (card) {
   });
 });
 
-// ==========================================
 // FORMULÁRIO DE CONTATO
-// ==========================================
-
 const formulario = document.getElementById("formContato");
 
 if (formulario) {
@@ -59,7 +41,6 @@ if (formulario) {
     const nome = document.getElementById("nome").value;
     const email = document.getElementById("email").value;
     const mensagem = document.getElementById("mensagem").value;
-
     alert(
       "APEX FIT\n\n" +
         "Obrigado, " +
