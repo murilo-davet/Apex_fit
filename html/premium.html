@@ -34,12 +34,12 @@
         <div class="benefits">
           <h3>O que está incluso</h3>
 
-          <div>✓ Tudo do plano Pro</div>
-          <div>✓ Personal trainer</div>
-          <div>✓ Atendimento personalizado</div>
-          <div>✓ Acesso a todas as unidades</div>
-          <div>✓ Aulas coletivas</div>
-          <div>✓ Estrutura premium</div>
+          <div>- Tudo do plano Pro</div>
+          <div>- Personal trainer</div>
+          <div>- Atendimento personalizado</div>
+          <div>- Acesso a todas as unidades</div>
+          <div>- Aulas coletivas</div>
+          <div>- Estrutura premium</div>
         </div>
       </div>
 
@@ -100,7 +100,18 @@
             required
           />
 
-          <button type="submit" class="btn form-btn">
+          <button
+            type="submit"
+            class="btn form-btn"
+            onclick="
+              escolherPlano(
+                'Premium',
+                'R$ 119,90',
+                document.getElementById('nome').value,
+                document.getElementById('email').value,
+              )
+            "
+          >
             Quero o plano Premium
           </button>
         </form>
@@ -110,5 +121,6 @@
     <footer>
       <p>© 2026 Apex Fit - Todos os direitos reservados</p>
     </footer>
+    <script src="../script.js"></script>
   </body>
 </html>

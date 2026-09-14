@@ -1,10 +1,16 @@
-function escolherPlano(nomePlano, preco) {
+function escolherPlano(nomePlano, preco, nome, email) {
   alert(
     "APEX FIT\n\n" +
+      "Obrigado(a) " +
+      nome +
+      "\n" +
       "Plano escolhido: " +
       nomePlano +
       "\nValor: " +
       preco +
+      "\n Você receberá um e-mail " +
+      email +
+      " para confirmar a sua compra e fornecer mais detalhes sobre o plano.\n" +
       "\n\nObrigado por escolher a Apex Fit!",
   );
 }
@@ -43,7 +49,7 @@ if (formulario) {
     const mensagem = document.getElementById("mensagem").value;
     alert(
       "APEX FIT\n\n" +
-        "Obrigado, " +
+        "Obrigado(a), " +
         nome +
         "!\n\n" +
         "Sua mensagem foi enviada com sucesso.\n" +

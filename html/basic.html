@@ -34,10 +34,10 @@
         <div class="benefits">
           <h3>O que está incluso</h3>
 
-          <div>✓ Acesso a 1 unidade</div>
-          <div>✓ Área completa de musculação</div>
-          <div>✓ Equipamentos modernos</div>
-          <div>✓ Horários flexíveis</div>
+          <div>- Acesso a 1 unidade</div>
+          <div>- Área completa de musculação</div>
+          <div>- Equipamentos modernos</div>
+          <div>- Horários flexíveis</div>
         </div>
       </div>
 
@@ -98,7 +98,18 @@
             required
           />
 
-          <button type="submit" class="btn form-btn">
+          <button
+            type="submit"
+            class="btn form-btn"
+            onclick="
+              escolherPlano(
+                'Basic',
+                'R$ 59,90/mês',
+                document.getElementById('nome').value,
+                document.getElementById('email').value,
+              )
+            "
+          >
             Quero o plano Basic
           </button>
         </form>

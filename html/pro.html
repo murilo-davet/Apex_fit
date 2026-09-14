@@ -34,11 +34,11 @@
         <div class="benefits">
           <h3>O que está incluso</h3>
 
-          <div>✓ Acesso a todas as unidades</div>
-          <div>✓ Área completa de musculação</div>
-          <div>✓ Aulas coletivas inclusas</div>
-          <div>✓ Equipamentos premium</div>
-          <div>✓ Horários flexíveis</div>
+          <div>- Acesso a todas as unidades</div>
+          <div>- Área completa de musculação</div>
+          <div>- Aulas coletivas inclusas</div>
+          <div>- Equipamentos premium</div>
+          <div>- Horários flexíveis</div>
         </div>
       </div>
 
@@ -99,7 +99,20 @@
             required
           />
 
-          <button type="submit" class="btn form-btn">Quero o plano Pro</button>
+          <button
+            type="submit"
+            class="btn form-btn"
+            onclick="
+              escolherPlano(
+                'Pro',
+                'R$ 89,90',
+                document.getElementById('nome').value,
+                document.getElementById('email').value,
+              )
+            "
+          >
+            Quero o plano Pro
+          </button>
         </form>
       </div>
     </section>
