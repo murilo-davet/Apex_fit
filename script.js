@@ -1,19 +1,19 @@
-function escolherPlano(nomePlano, preco, nome, email) {
-  alert(
-    "APEX FIT\n\n" +
-      "Obrigado(a) " +
-      nome +
-      "\n" +
-      "Plano escolhido: " +
-      nomePlano +
-      "\nValor: " +
-      preco +
-      "\n Você receberá um e-mail " +
-      email +
-      " para confirmar a sua compra e fornecer mais detalhes sobre o plano.\n" +
-      "\n\nObrigado por escolher a Apex Fit!",
-  );
+function escolherPlano(nome, valor) {
+  localStorage.setItem("nomePlano", nome);
+  localStorage.setItem("valorPlano", valor);
+
+  window.location.href = "pagamento.html";
 }
+
+if (document.getElementById("nome-plano")) {
+  document.getElementById("nome-plano").textContent =
+    localStorage.getItem("nomePlano");
+
+  document.getElementById("valor-plano").textContent =
+    `R$ ${localStorage.getItem("valorPlano")}`;
+}
+
+function finalizarPagamento() {}
 
 function selecionarUnidade(nomeUnidade) {
   alert(
