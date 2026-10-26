@@ -1,11 +1,13 @@
+
 <!doctype html>
-<html lang="en">
+<html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Apex FIT | Pagamento</title>
+    <title>Apex FIT | Cadastro e Pagamento</title>
     <link rel="stylesheet" href="../style_planos_index.css" />
   </head>
+
   <body class="page-premium">
     <header>
       <a href="index.html" class="logo">APEX <span>FIT</span></a>
@@ -20,29 +22,54 @@
     <section class="plan-page premium-page">
       <div class="plan-info">
         <span class="tag">EXPERIÊNCIA EXCLUSIVA</span>
-
         <h1 id="nome-plano"></h1>
-
         <p class="big-price" id="valor-plano"></p>
 
         <p>
-          Para quem busca o máximo desempenho, atendimento personalizado e uma
-          experiência completa.
+          Para quem busca o máximo desempenho, atendimento
+          personalizado e uma experiência completa.
         </p>
       </div>
 
       <div class="form-container" id="cadastro">
-        <h2>Faça seu cadastro</h2>
+        <h2>Cadastro do cliente</h2>
+        <p>Preencha seus dados para se cadastrar na Apex FIT.</p>
 
-        <p>Preencha seus dados de pagamento</p>
+        <form id="formCadastro">
+          <label for="nome-cliente">Nome completo</label>
+          <input
+            type="text"
+            id="nome-cliente"
+            required
+            placeholder="Seu nome completo"
+          />
 
-        <form>
+          <label for="email-cliente">E-mail</label>
+          <input
+            type="email"
+            id="email-cliente"
+            required
+            placeholder="seuemail@email.com"
+          />
+
+          <label for="telefone-cliente">Telefone</label>
+          <input
+            type="tel"
+            id="telefone-cliente"
+            required
+            placeholder="(41) 99999-9999"
+          />
+
+          <h2>Dados de pagamento</h2>
+
           <label for="cartao">Número do cartão</label>
           <input
             type="text"
             id="cartao"
-            name="cartao"
+            inputmode="numeric"
+            autocomplete="cc-number"
             placeholder="0000 0000 0000 0000"
+            maxlength="19"
             required
           />
 
@@ -50,8 +77,8 @@
           <input
             type="text"
             id="nomeCartao"
-            name="nomeCartao"
-            placeholder="Nome completo"
+            autocomplete="cc-name"
+            placeholder="Nome impresso no cartão"
             required
           />
 
@@ -59,27 +86,25 @@
           <input
             type="text"
             id="validade"
-            name="validade"
+            autocomplete="cc-exp"
             placeholder="MM/AA"
+            maxlength="5"
             required
           />
 
           <label for="cvv">CVV</label>
           <input
-            type="text"
+            type="password"
             id="cvv"
-            name="cvv"
-            placeholder="000"
-            maxlength="3"
+            inputmode="numeric"
+            autocomplete="cc-csc"
+            placeholder="CVV"
+            maxlength="4"
             required
           />
 
-          <button
-            type="submit"
-            class="btn form-btn"
-            onclick="finalizarPagamento()"
-          >
-            Finalizar Pagamento
+          <button type="submit" class="btn form-btn">
+            Cadastrar cliente
           </button>
         </form>
       </div>
@@ -88,6 +113,7 @@
     <footer>
       <p>© 2026 Apex Fit - Todos os direitos reservados</p>
     </footer>
+
     <script src="../script.js"></script>
   </body>
 </html>
