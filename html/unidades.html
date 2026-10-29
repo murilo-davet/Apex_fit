@@ -1,92 +1,165 @@
+
 <!doctype html>
 <html lang="pt-BR">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Apex Fit - Unidades</title>
-
-    <link rel="stylesheet" href="../style.css" />
-  </head>
-
-  <body>
-    <!-- HEADER -->
+    <link rel="stylesheet" href="../style.css">
+    <script src="../script.js" defer></script>
+</head>
+<body>
     <header>
-      <div class="logo">APEX <span>FIT</span></div>
-
-      <nav>
-        <a href="index.html">Início</a>
-        <a href="contato.html">Contato</a>
-      </nav>
+        <a href="../index.html" class="logo">APEX <span>FIT</span></a>
+        <nav>
+            <a href="../index.html">Início</a>
+            <a href="unidades.html">Unidades</a>
+        </nav>
     </header>
 
-    <!-- TÍTULO -->
     <section class="titulo-unidades">
-      <h1>Nossas <span>unidades</span></h1>
-
-      <p>Encontre a Apex Fit mais próxima de você.</p>
+        <h1>Nossas <span>unidades</span></h1>
+        <p>Encontre a Apex Fit mais próxima de você.</p>
     </section>
 
-    <!-- UNIDADES -->
+    <section class="filtros-unidades">
+        <h2>Encontre sua unidade</h2>
+
+        <div class="filtros-container">
+            <div class="campo-filtro campo-filtro-pesquisa">
+                <label for="pesquisa">Pesquisar por nome ou endereço</label>
+                <div class="campo-pesquisa">
+                    <input
+                        type="search"
+                        id="pesquisa"
+                        placeholder="Ex.: Centro, Rua Central..."
+                        autocomplete="off"
+                    >
+                    <button type="button" id="buscar-unidade" aria-label="Pesquisar">
+                        &#128269;
+                    </button>
+                </div>
+            </div>
+
+            <div class="campo-filtro">
+                <label for="bairro">Filtrar por bairro</label>
+                <select id="bairro">
+                    <option value="">Todos os bairros</option>
+                    <option value="Centro">Centro</option>
+                    <option value="Batel">Batel</option>
+                    <option value="Jardim">Jardim</option>
+                    <option value="Água Verde">Água Verde</option>
+                    <option value="Cabral">Cabral</option>
+                    <option value="Portão">Portão</option>
+                </select>
+            </div>
+
+            <button type="button" class="btn" id="limpar-filtros">
+                Limpar filtros
+            </button>
+        </div>
+
+        <p id="contador-unidades" aria-live="polite">6 unidades encontradas</p>
+    </section>
+
+    <p id="nenhuma-unidade" hidden>
+        Nenhuma unidade encontrada. Tente outro nome ou bairro.
+    </p>
+
     <section class="unidades">
-      <div class="cards">
-        <!-- UNIDADE 1 -->
-        <div class="card unidade">
-          <h3>Apex Fit Centro</h3>
+        <div class="cards" id="lista-unidades">
+            <div class="card unidade"
+                 data-nome="Apex Fit Centro"
+                 data-endereco="Rua Central, 100"
+                 data-bairro="Centro">
+                <h3>Apex Fit Centro</h3>
+                <p class="endereco">📍 Rua Central, 100</p>
+                <p>🕐 Segunda a sexta: 06h - 23h</p>
+                <p>🕐 Sábado e domingo: 08h - 18h</p>
+                <button type="button" class="btn"
+                        onclick="selecionarUnidade('Apex Fit Centro')">
+                    Ver unidade
+                </button>
+            </div>
 
-          <p>📍 Rua Central, 100</p>
+            <div class="card unidade"
+                 data-nome="Apex Fit Batel"
+                 data-endereco="Avenida Brasil, 250"
+                 data-bairro="Batel">
+                <h3>Apex Fit Batel</h3>
+                <p class="endereco">📍 Avenida Brasil, 250</p>
+                <p>🕐 Segunda a sexta: 06h - 23h</p>
+                <p>🕐 Sábado e domingo: 08h - 18h</p>
+                <button type="button" class="btn"
+                        onclick="selecionarUnidade('Apex Fit Batel')">
+                    Ver unidade
+                </button>
+            </div>
 
-          <p>🕐 Segunda a sexta: 06h - 23h</p>
+            <div class="card unidade"
+                 data-nome="Apex Fit Jardim"
+                 data-endereco="Rua das Flores, 500"
+                 data-bairro="Jardim">
+                <h3>Apex Fit Jardim</h3>
+                <p class="endereco">📍 Rua das Flores, 500</p>
+                <p>🕐 Segunda a sexta: 06h - 23h</p>
+                <p>🕐 Sábado e domingo: 08h - 18h</p>
+                <button type="button" class="btn"
+                        onclick="selecionarUnidade('Apex Fit Jardim')">
+                    Ver unidade
+                </button>
+            </div>
 
-          <p>🕐 Sábado e domingo: 08h - 18h</p>
+            <div class="card unidade"
+                 data-nome="Apex Fit Água Verde"
+                 data-endereco="Avenida República, 350"
+                 data-bairro="Água Verde">
+                <h3>Apex Fit Água Verde</h3>
+                <p class="endereco">📍 Avenida República, 350</p>
+                <p>🕐 Segunda a sexta: 06h - 23h</p>
+                <p>🕐 Sábado e domingo: 08h - 18h</p>
+                <button type="button" class="btn"
+                        onclick="selecionarUnidade('Apex Fit Água Verde')">
+                    Ver unidade
+                </button>
+            </div>
 
-          <button class="btn" onclick="selecionarUnidade('Apex Fit Centro')">
-            Ver unidade
-          </button>
+            <div class="card unidade"
+                 data-nome="Apex Fit Cabral"
+                 data-endereco="Rua dos Pinheiros, 420"
+                 data-bairro="Cabral">
+                <h3>Apex Fit Cabral</h3>
+                <p class="endereco">📍 Rua dos Pinheiros, 420</p>
+                <p>🕐 Segunda a sexta: 06h - 23h</p>
+                <p>🕐 Sábado e domingo: 08h - 18h</p>
+                <button type="button" class="btn"
+                        onclick="selecionarUnidade('Apex Fit Cabral')">
+                    Ver unidade
+                </button>
+            </div>
+
+            <div class="card unidade"
+                 data-nome="Apex Fit Portão"
+                 data-endereco="Avenida República, 780"
+                 data-bairro="Portão">
+                <h3>Apex Fit Portão</h3>
+                <p class="endereco">📍 Avenida República, 780</p>
+                <p>🕐 Segunda a sexta: 06h - 23h</p>
+                <p>🕐 Sábado e domingo: 08h - 18h</p>
+                <button type="button" class="btn"
+                        onclick="selecionarUnidade('Apex Fit Portão')">
+                    Ver unidade
+                </button>
+            </div>
         </div>
-
-        <!-- UNIDADE 2 -->
-        <div class="card unidade">
-          <h3>Apex Fit Batel</h3>
-
-          <p>📍 Avenida Brasil, 250</p>
-
-          <p>🕐 Segunda a sexta: 06h - 23h</p>
-
-          <p>🕐 Sábado e domingo: 08h - 18h</p>
-
-          <button class="btn" onclick="selecionarUnidade('Apex Fit Batel')">
-            Ver unidade
-          </button>
-        </div>
-
-        <!-- UNIDADE 3 -->
-        <div class="card unidade">
-          <h3>Apex Fit Jardim</h3>
-
-          <p>📍 Rua das Flores, 500</p>
-
-          <p>🕐 Segunda a sexta: 06h - 23h</p>
-
-          <p>🕐 Sábado e domingo: 08h - 18h</p>
-
-          <button class="btn" onclick="selecionarUnidade('Apex Fit Jardim')">
-            Ver unidade
-          </button>
-        </div>
-      </div>
     </section>
 
-    <!-- VOLTAR -->
     <div class="voltar">
-      <a href="index.html" class="btn"> Voltar para o início </a>
+        <a href="../index.html" class="btn">Voltar para o início</a>
     </div>
 
-    <!-- FOOTER -->
     <footer>
-      <p>© 2026 Apex Fit - Todos os direitos reservados</p>
+        <p>© 2026 Apex Fit - Todos os direitos reservados</p>
     </footer>
-
-    <script src="../script.js"></script>
-  </body>
+</body>
 </html>
