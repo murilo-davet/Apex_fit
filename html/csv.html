@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Apex Fit | Importar CSV</title>
+
+    <link rel="stylesheet" href="../style_planos_index.css" />
+
+    <style>
+      .csv-container {
+        max-width: 1200px;
+        margin: 50px auto;
+        padding: 25px;
+      }
+
+      .csv-header {
+        margin-bottom: 30px;
+      }
+
+      .csv-header h1 {
+        margin-bottom: 10px;
+      }
+
+      .csv-upload {
+        padding: 25px;
+        margin-bottom: 25px;
+        border: 2px dashed #888;
+        border-radius: 12px;
+        text-align: center;
+      }
+
+      .csv-upload input {
+        display: block;
+        margin: 15px auto;
+        max-width: 100%;
+      }
+
+      .csv-stats {
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+        margin-bottom: 25px;
+      }
+
+      .csv-stat {
+        flex: 1;
+        min-width: 180px;
+        padding: 20px;
+        border-radius: 10px;
+        background: #222;
+        color: white;
+      }
+
+      .csv-stat h3 {
+        font-size: 16px;
+        margin-bottom: 10px;
+      }
+
+      .csv-stat p {
+        font-size: 26px;
+        font-weight: bold;
+      }
+
+      .csv-search {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 12px;
+        margin-bottom: 20px;
+        border-radius: 6px;
+        border: 1px solid #aaa;
+      }
+
+      .csv-table-container {
+        overflow-x: auto;
+      }
+
+      .csv-table {
+        width: 100%;
+        border-collapse: collapse;
+        white-space: nowrap;
+      }
+
+      .csv-table th,
+      .csv-table td {
+        padding: 12px;
+        border-bottom: 1px solid #ddd;
+        text-align: left;
+      }
+
+      .csv-table th {
+        background: #222;
+        color: white;
+      }
+
+      .csv-table tbody tr:hover {
+        background: #eee;
+        color: #222;
+      }
+
+      .csv-message {
+        margin: 15px 0;
+      }
+
+      .csv-button {
+        padding: 12px 20px;
+        cursor: pointer;
+        border: none;
+        border-radius: 6px;
+      }
+
+      .csv-empty {
+        padding: 30px;
+        text-align: center;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <a href="index.html" class="logo"> APEX <span>FIT</span> </a>
+
+      <nav>
+        <a href="index.html">Início</a>
+        <a href="index.html#planos">Planos</a>
+        <a href="contato.html">Contato</a>
+        <a href="unidades.html">Unidades</a>
+      </nav>
+    </header>
+
+    <main class="csv-container">
+      <section class="csv-header">
+        <h1>Gerenciamento de cadastros</h1>
+
+        <p>
+          Importe um arquivo CSV para consultar os cadastros registrados no
+          sistema Apex Fit.
+        </p>
+      </section>
+
+      <section class="csv-upload">
+        <h2>Importar arquivo</h2>
+
+        <p>Selecione um arquivo CSV do seu computador.</p>
+
+        <input type="file" id="arquivoCSV" accept=".csv,text/csv" />
+
+        <button type="button" id="btnImportar" class="csv-button">
+          Importar CSV
+        </button>
+
+        <p id="mensagem" class="csv-message" role="status">
+          Nenhum arquivo importado.
+        </p>
+      </section>
+
+      <section class="csv-stats">
+        <div class="csv-stat">
+          <h3>Total de cadastros</h3>
+          <p id="totalCadastros">0</p>
+        </div>
+
+        <div class="csv-stat">
+          <h3>Planos Basic</h3>
+          <p id="totalBasic">0</p>
+        </div>
+
+        <div class="csv-stat">
+          <h3>Planos Pro</h3>
+          <p id="totalPro">0</p>
+        </div>
+
+        <div class="csv-stat">
+          <h3>Planos Premium</h3>
+          <p id="totalPremium">0</p>
+        </div>
+      </section>
+
+      <section>
+        <h2>Cadastros importados</h2>
+
+        <input
+          type="search"
+          id="pesquisa"
+          class="csv-search"
+          placeholder="Pesquisar por nome, CPF ou e-mail..."
+          disabled
+        />
+
+        <div class="csv-table-container">
+          <table class="csv-table">
+            <thead id="cabecalhoTabela"></thead>
+
+            <tbody id="corpoTabela">
+              <tr>
+                <td class="csv-empty">
+                  Importe um arquivo para visualizar os dados.
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p id="resultadoPesquisa"></p>
+      </section>
+    </main>
+
+    <footer>
+      <p>© 2026 Apex Fit - Todos os direitos reservados</p>
+    </footer>
+
+    <script src="../csv.js"></script>
+  </body>
+</html>
