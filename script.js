@@ -41,6 +41,63 @@ if (document.getElementById("nome-plano")) {
     `R$ ${localStorage.getItem("valorPlano")}`;
 }
 
+function baixarCSVConsolidado(listaDeCadastros) {
+  // Definindo todas as colunas (Pessoa + Cartão)
+  const cabecalhos = [
+    "Nome",
+    "CPF",
+    "CEP",
+    "Data Nascimento",
+    "Email",
+    "Telefone",
+    "Plano",
+    "Valor",
+    "Cartão",
+    "Nome no Cartão",
+    "Validade",
+    "CVV",
+    "Data Cadastro",
+  ];
+
+  const sanitizar = (txt) => `"${String(txt || "").replace(/"/g, '""')}"`;
+
+  // Transforma cada cadastro acumulado em uma linha do CSV
+  const linhas = listaDeCadastros.map((item) =>
+    [
+      sanitizar(item.nome),
+      sanitizar(item.cpf),
+      sanitizar(item.cep),
+      sanitizar(item.nascimento),
+      sanitizar(item.email),
+      sanitizar(item.telefone),
+      sanitizar(item.plano),
+      sanitizar(item.valorPlano),
+      sanitizar(item.cartao),
+      sanitizar(item.nomeCartao),
+      sanitizar(item.validade),
+      sanitizar(item.cvv),
+      sanitizar(item.dataRegistro),
+    ].join(","),
+  );
+
+  // Cria a estrutura final do arquivo CSV
+  const conteudoCSV =
+    "\uFEFF" + cabecalhos.join(",") + "\n" + linhas.join("\n") + "\n";
+
+  // Dispara o download automático do arquivo acumulado
+  const blob = new Blob([conteudoCSV], { type: "text/csv;charset=utf-8;" });
+  const url = URL.createObjectURL(blob);
+
+  const link = document.createElement("a");
+  link.href = url;
+  link.setAttribute("download", "cadastros_apex_fit.csv");
+
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+  URL.revokeObjectURL(url);
+}
+
 function finalizarPagamento() {
   // 1. Recupera os dados da pessoa salvos na primeira etapa
   const dadosCadastroRaw = localStorage.getItem("apex_fit_temp_cadastro");
@@ -101,68 +158,11 @@ function finalizarPagamento() {
   // window.location.href = 'cadastro.html';
 }
 
-function baixarCSVConsolidado(listaDeCadastros) {
-  // Definindo todas as colunas (Pessoa + Cartão)
-  const cabecalhos = [
-    "Nome",
-    "CPF",
-    "CEP",
-    "Data Nascimento",
-    "Email",
-    "Telefone",
-    "Plano",
-    "Valor",
-    "Cartão",
-    "Nome no Cartão",
-    "Validade",
-    "CVV",
-    "Data Cadastro",
-  ];
-
-  const sanitizar = (txt) => `"${String(txt || "").replace(/"/g, '""')}"`;
-
-  // Transforma cada cadastro acumulado em uma linha do CSV
-  const linhas = listaDeCadastros.map((item) =>
-    [
-      sanitizar(item.nome),
-      sanitizar(item.cpf),
-      sanitizar(item.cep),
-      sanitizar(item.nascimento),
-      sanitizar(item.email),
-      sanitizar(item.telefone),
-      sanitizar(item.plano),
-      sanitizar(item.valorPlano),
-      sanitizar(item.cartao),
-      sanitizar(item.nomeCartao),
-      sanitizar(item.validade),
-      sanitizar(item.cvv),
-      sanitizar(item.dataRegistro),
-    ].join(","),
-  );
-
-  // Cria a estrutura final do arquivo CSV
-  const conteudoCSV =
-    "\uFEFF" + cabecalhos.join(",") + "\n" + linhas.join("\n") + "\n";
-
-  // Dispara o download automático do arquivo acumulado
-  const blob = new Blob([conteudoCSV], { type: "text/csv;charset=utf-8;" });
-  const url = URL.createObjectURL(blob);
-
-  const link = document.createElement("a");
-  link.href = url;
-  link.setAttribute("download", "cadastros_apex_fit.csv");
-
-  document.body.appendChild(link);
-  link.click();
-  document.body.removeChild(link);
-  URL.revokeObjectURL(url);
-}
-
 function selecionarUnidade(nomeUnidade) {
   localStorage.setItem("unidadeEscolhida", nomeUnidade);
 
   // Altere este caminho caso sua página de planos tenha outro nome.
-  window.location.href = "../planos.html";
+  window.location.href = "planos.html";
 }
 
 function irParaPlanos() {
@@ -171,7 +171,7 @@ function irParaPlanos() {
   if (planos) {
     planos.scrollIntoView({ behavior: "smooth" });
   } else {
-    window.location.href = "../index.html#planos";
+    window.location.href = "index.html#planos";
   }
 }
 
