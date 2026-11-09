@@ -1,433 +1,569 @@
+
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 body {
-  background-color: #0d0d0d;
-  color: #fff;
+    background-color: #0d0d0d;
+    color: #fff;
 }
 
-/* ========================= */
+[hidden] {
+    display: none !important;
+}
+
 /* HEADER */
-/* ========================= */
 
 header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  padding: 20px 10%;
-
-  background: #111;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 10%;
+    background: #111;
 }
 
 .logo {
-  font-size: 24px;
-  font-weight: bold;
+    font-size: 24px;
+    font-weight: bold;
+    color: #fff;
+    text-decoration: none;
 }
 
 .logo span {
-  color: #a855f7;
+    color: #a855f7;
 }
 
 nav a {
-  margin: 0 15px;
-
-  text-decoration: none;
-
-  color: #ccc;
-
-  transition: 0.3s;
+    margin: 0 15px;
+    text-decoration: none;
+    color: #ccc;
+    transition: 0.3s;
 }
 
 nav a:hover {
-  color: #fff;
+    color: #fff;
 }
 
-/* ========================= */
-/* BOTÃO */
-/* ========================= */
+/* BOTÕES */
 
 .btn {
-  display: inline-block;
-
-  background: linear-gradient(45deg, #facc15, #a855f7);
-
-  border: none;
-
-  padding: 10px 20px;
-
-  color: #000;
-
-  font-weight: bold;
-
-  cursor: pointer;
-
-  border-radius: 5px;
-
-  text-decoration: none;
-
-  transition: 0.3s;
+    display: inline-block;
+    background: linear-gradient(45deg, #facc15, #a855f7);
+    border: none;
+    padding: 10px 20px;
+    color: #000;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: 0.3s;
 }
 
 .btn:hover {
-  transform: scale(1.05);
+    transform: scale(1.05);
 }
 
-/* ========================= */
+.btn:focus-visible,
+.campo-pesquisa button:focus-visible {
+    outline: 2px solid #fff;
+    outline-offset: 3px;
+}
+
 /* HERO */
-/* ========================= */
 
 .hero {
-  height: 80vh;
-
-  background:
-    linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)),
-    url("https://images.unsplash.com/photo-1558611848-73f7eb4001a1") no-repeat
-      center/cover;
-
-  display: flex;
-
-  align-items: center;
-
-  padding: 0 10%;
+    min-height: 80vh;
+    background:
+        linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)),
+        url("https://images.unsplash.com/photo-1558611848-73f7eb4001a1")
+        no-repeat center/cover;
+    display: flex;
+    align-items: center;
+    padding: 0 10%;
 }
 
 .hero-text {
-  max-width: 600px;
+    max-width: 600px;
 }
 
 .hero-text h1 {
-  font-size: 48px;
+    font-size: 48px;
 }
 
 .hero-text span {
-  color: #facc15;
+    color: #facc15;
 }
 
 .hero-text p {
-  margin: 20px 0;
-
-  color: #ccc;
-
-  font-size: 18px;
+    margin: 20px 0;
+    color: #ccc;
+    font-size: 18px;
 }
 
-/* ========================= */
 /* PLANOS */
-/* ========================= */
 
 .planos {
-  padding: 60px 10%;
-
-  text-align: center;
+    padding: 60px 10%;
+    text-align: center;
 }
 
 .planos h2 {
-  margin-bottom: 40px;
-
-  font-size: 35px;
+    margin-bottom: 40px;
+    font-size: 35px;
 }
 
 .cards {
-  display: flex;
-
-  gap: 20px;
-
-  justify-content: center;
-
-  flex-wrap: wrap;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
 .card {
-  background: #111;
-
-  padding: 25px;
-
-  width: 280px;
-
-  border-radius: 10px;
-
-  transition: 0.3s;
+    background: #111;
+    padding: 25px;
+    width: 280px;
+    border-radius: 10px;
+    transition: 0.3s;
 }
 
 .card:hover {
-  transform: translateY(-10px);
+    transform: translateY(-10px);
 }
 
 .card h3 {
-  margin-bottom: 10px;
-
-  font-size: 25px;
+    margin-bottom: 10px;
+    font-size: 25px;
 }
 
 .card p {
-  font-size: 20px;
-
-  margin-bottom: 15px;
+    font-size: 20px;
+    margin-bottom: 15px;
 }
 
 .card ul {
-  list-style: none;
-
-  margin-bottom: 20px;
+    list-style: none;
+    margin-bottom: 20px;
 }
 
 .card ul li {
-  margin: 8px 0;
-
-  color: #ccc;
+    margin: 8px 0;
+    color: #ccc;
 }
 
 .destaque {
-  border: 2px solid #facc15;
-
-  transform: scale(1.05);
+    border: 2px solid #facc15;
+    transform: scale(1.05);
 }
 
 .destaque:hover {
-  transform: scale(1.08);
+    transform: scale(1.08);
 }
 
-/* ========================= */
-/* PÁGINA DE PLANOS */
-/* ========================= */
+/* TÍTULO DOS PLANOS */
 
 .titulo-planos {
-  text-align: center;
-
-  padding: 80px 20px 40px;
+    text-align: center;
+    padding: 80px 20px 40px;
 }
 
 .titulo-planos h1 {
-  font-size: 45px;
-
-  margin-bottom: 15px;
+    font-size: 45px;
+    margin-bottom: 15px;
 }
 
 .titulo-planos h1 span {
-  color: #facc15;
+    color: #facc15;
 }
 
 .titulo-planos p {
-  color: #ccc;
-
-  font-size: 18px;
+    color: #ccc;
+    font-size: 18px;
 }
 
-/* ========================= */
-/* BOTÃO VOLTAR */
-/* ========================= */
-
-.voltar {
-  text-align: center;
-
-  margin: 30px 0 60px;
-}
-
-/* ========================= */
-/* FOOTER */
-/* ========================= */
-
-footer {
-  text-align: center;
-
-  padding: 20px;
-
-  background: #111;
-
-  margin-top: 40px;
-
-  color: #aaa;
-}
-
-/* ========================= */
-/* RESPONSIVO */
-/* ========================= */
-
-@media (max-width: 700px) {
-  header {
-    flex-direction: column;
-
-    gap: 15px;
-  }
-
-  .hero {
-    height: 70vh;
-
-    padding: 0 5%;
-  }
-
-  .hero-text h1 {
-    font-size: 35px;
-  }
-
-  .cards {
-    flex-direction: column;
-
-    align-items: center;
-  }
-
-  .card {
-    width: 90%;
-
-    max-width: 350px;
-  }
-
-  .destaque {
-    transform: none;
-  }
-
-  .destaque:hover {
-    transform: translateY(-10px);
-  }
-}
-
-/* ========================= */
-/* PÁGINA DE UNIDADES */
-/* ========================= */
+/* TÍTULO DAS UNIDADES */
 
 .titulo-unidades {
-  text-align: center;
-  padding: 80px 20px 40px;
+    text-align: center;
+    padding: 80px 20px 40px;
 }
 
 .titulo-unidades h1 {
-  font-size: 45px;
-  margin-bottom: 15px;
+    font-size: 45px;
+    margin-bottom: 15px;
 }
 
 .titulo-unidades h1 span {
-  color: #facc15;
+    color: #facc15;
 }
 
 .titulo-unidades p {
-  color: #ccc;
-  font-size: 18px;
+    color: #ccc;
+    font-size: 18px;
 }
 
+/* FILTROS DAS UNIDADES */
+
+.filtros-unidades {
+    width: 90%;
+    max-width: 1100px;
+    margin: 30px auto;
+    padding: 25px;
+    border-radius: 12px;
+    background: #171717;
+    color: #fff;
+    border: 1px solid #292929;
+}
+
+.filtros-unidades h2 {
+    margin: 0 0 20px;
+    font-size: 24px;
+}
+
+.filtros-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: end;
+    gap: 15px;
+}
+
+.campo-filtro {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 200px;
+    min-width: 0;
+    gap: 8px;
+}
+
+.campo-filtro label {
+    font-size: 14px;
+    font-weight: bold;
+    color: #ddd;
+}
+
+.campo-filtro input,
+.campo-filtro select {
+    width: 100%;
+    min-height: 44px;
+    padding: 10px;
+    border: 1px solid #444;
+    border-radius: 6px;
+    background: #252525;
+    color: #fff;
+    font-size: 14px;
+}
+
+.campo-filtro input:focus,
+.campo-filtro select:focus {
+    outline: 2px solid #a855f7;
+    outline-offset: 2px;
+}
+
+.campo-filtro-pesquisa {
+    flex: 2 1 350px;
+}
+
+.campo-pesquisa {
+    display: flex;
+    width: 100%;
+    gap: 8px;
+}
+
+.campo-pesquisa input {
+    flex: 1;
+    min-width: 0;
+    height: 44px;
+    padding: 10px;
+    border: 1px solid #444;
+    border-radius: 6px;
+    background: #252525;
+    color: #fff;
+    font-size: 14px;
+}
+
+.campo-pesquisa input::placeholder {
+    color: #999;
+}
+
+.campo-pesquisa button {
+    width: 48px;
+    min-width: 48px;
+    height: 44px;
+    border: none;
+    border-radius: 6px;
+    background: linear-gradient(45deg, #facc15, #a855f7);
+    color: #111;
+    font-size: 20px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.campo-pesquisa button:hover {
+    transform: scale(1.05);
+}
+
+#limpar-filtros {
+    min-height: 44px;
+    white-space: nowrap;
+}
+
+#contador-unidades {
+    margin: 20px 0 0;
+    font-size: 14px;
+    color: #c5c5c5;
+}
+
+#nenhuma-unidade {
+    width: 90%;
+    max-width: 1100px;
+    margin: 30px auto;
+    padding: 25px;
+    text-align: center;
+    font-size: 16px;
+    color: #ccc;
+    background: #171717;
+    border-radius: 10px;
+}
+
+/* CARDS DAS UNIDADES */
+
 .unidades {
-  padding: 40px 10% 60px;
+    padding: 40px 10% 60px;
+}
+
+.unidades .cards {
+    align-items: stretch;
 }
 
 .unidade {
-  min-height: 300px;
+    display: flex;
+    flex-direction: column;
+    min-height: 300px;
+}
+
+.unidade h3 {
+    color: #fff;
 }
 
 .unidade p {
-  font-size: 15px;
-  color: #ccc;
-  margin: 15px 0;
+    font-size: 15px;
+    line-height: 1.5;
+    color: #ccc;
+    margin: 10px 0;
+}
+
+.unidade .endereco {
+    color: #facc15;
 }
 
 .unidade .btn {
-  margin-top: 10px;
+    margin-top: auto;
+    align-self: flex-start;
 }
 
-/* ========================= */
-/* PÁGINA DE CONTATO */
-/* ========================= */
+/* BOTÃO VOLTAR */
+
+.voltar {
+    text-align: center;
+    margin: 30px 0 60px;
+}
+
+/* CONTATO */
 
 .titulo-contato {
-  text-align: center;
-  padding: 80px 20px 40px;
+    text-align: center;
+    padding: 80px 20px 40px;
 }
 
 .titulo-contato h1 {
-  font-size: 45px;
-  margin-bottom: 15px;
+    font-size: 45px;
+    margin-bottom: 15px;
 }
 
 .titulo-contato h1 span {
-  color: #facc15;
+    color: #facc15;
 }
 
 .titulo-contato p {
-  color: #ccc;
-  font-size: 18px;
+    color: #ccc;
+    font-size: 18px;
 }
 
-/* INFORMAÇÕES */
-
 .contato {
-  padding: 30px 10% 70px;
+    padding: 30px 10% 70px;
 }
 
 .contato-cards {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  flex-wrap: wrap;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
 }
 
 .contato-card {
-  width: 280px;
-  min-height: 220px;
+    width: 280px;
+    min-height: 220px;
 }
 
 .contato-card h3 {
-  margin-bottom: 20px;
+    margin-bottom: 20px;
 }
 
 .contato-card p {
-  font-size: 15px;
-  color: #ccc;
-  margin: 10px 0;
+    font-size: 15px;
+    color: #ccc;
+    margin: 10px 0;
 }
 
-/* FORMULÁRIO */
+/* FORMULÁRIO DE CONTATO */
 
 .formulario {
-  max-width: 600px;
-  margin: 60px auto 0;
-  background: #111;
-  padding: 30px;
-  border-radius: 10px;
+    max-width: 600px;
+    margin: 60px auto 0;
+    background: #111;
+    padding: 30px;
+    border-radius: 10px;
 }
 
 .formulario h2 {
-  text-align: center;
-  margin-bottom: 25px;
+    text-align: center;
+    margin-bottom: 25px;
 }
 
 .formulario form {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 }
 
 .formulario input,
 .formulario textarea {
-  width: 100%;
-  padding: 15px;
-
-  background: #1a1a1a;
-
-  border: 1px solid #333;
-
-  border-radius: 5px;
-
-  color: #fff;
-
-  font-size: 15px;
+    width: 100%;
+    padding: 15px;
+    background: #1a1a1a;
+    border: 1px solid #333;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 15px;
 }
 
 .formulario textarea {
-  resize: vertical;
+    resize: vertical;
 }
 
 .formulario input:focus,
 .formulario textarea:focus {
-  outline: none;
-  border-color: #facc15;
+    outline: none;
+    border-color: #facc15;
 }
 
 .formulario .btn {
-  align-self: center;
+    align-self: center;
 }
-html {
-  scroll-behavior: smooth;
+
+/* FOOTER */
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #111;
+    margin-top: 40px;
+    color: #aaa;
+}
+
+/* RESPONSIVIDADE */
+
+@media (max-width: 700px) {
+    header {
+        flex-direction: column;
+        gap: 15px;
+        padding: 20px 5%;
+    }
+
+    nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px;
+    }
+
+    nav a {
+        margin: 0;
+    }
+
+    .hero {
+        min-height: 70vh;
+        padding: 0 5%;
+    }
+
+    .hero-text h1 {
+        font-size: 35px;
+    }
+
+    .cards {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .card {
+        width: 90%;
+        max-width: 350px;
+    }
+
+    .destaque {
+        transform: none;
+    }
+
+    .destaque:hover {
+        transform: translateY(-10px);
+    }
+
+    .titulo-unidades h1,
+    .titulo-planos h1,
+    .titulo-contato h1 {
+        font-size: 35px;
+    }
+
+    .unidades {
+        padding: 25px 5% 45px;
+    }
+
+    .unidade {
+        min-height: auto;
+    }
+
+    .unidade .btn {
+        margin-top: 15px;
+    }
+
+    .filtros-unidades {
+        padding: 18px;
+    }
+
+    .filtros-container {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .campo-filtro,
+    .campo-filtro-pesquisa {
+        width: 100%;
+        flex: 1 1 auto;
+    }
+
+    #limpar-filtros {
+        width: 100%;
+    }
+
+    .formulario {
+        width: 90%;
+        padding: 20px;
+    }
 }
