@@ -98,66 +98,6 @@ function baixarCSVConsolidado(listaDeCadastros) {
   URL.revokeObjectURL(url);
 }
 
-function finalizarPagamento() {
-  // 1. Recupera os dados da pessoa salvos na primeira etapa
-  const dadosCadastroRaw = localStorage.getItem("apex_fit_temp_cadastro");
-
-  if (!dadosCadastroRaw) {
-    alert(
-      "Dados de cadastro não encontrados. Por favor, preencha o formulário inicial.",
-    );
-    window.location.href = "cadastro.html"; // Ajuste para a sua página inicial
-    return;
-  }
-
-  const pessoa = JSON.parse(dadosCadastroRaw);
-
-  // 2. Captura os dados do cartão inseridos na página atual
-  const dadosCartao = {
-    cartao: document.getElementById("cartao")?.value.trim() || "",
-    nomeCartao: document.getElementById("nomeCartao")?.value.trim() || "",
-    validade: document.getElementById("validade")?.value.trim() || "",
-    cvv: document.getElementById("cvv")?.value.trim() || "",
-  };
-
-  if (!dadosCartao.cartao || !dadosCartao.nomeCartao) {
-    alert("Por favor, preencha os dados do cartão.");
-    return;
-  }
-
-  // 3. Unifica os dados da pessoa, do cartão e a data do registro
-  const novoRegistro = {
-    ...pessoa,
-    ...dadosCartao,
-    dataRegistro: new Date().toLocaleDateString("pt-BR"),
-  };
-
-  // 4. Busca os cadastros anteriores guardados no navegador (ou inicia uma lista vazia)
-  const historicoCadastros = JSON.parse(
-    localStorage.getItem("apex_fit_base_csv") || "[]",
-  );
-
-  // Adiciona o novo cadastro à lista acumulada
-  historicoCadastros.push(novoRegistro);
-
-  // Atualiza o histórico no localStorage
-  localStorage.setItem("apex_fit_base_csv", JSON.stringify(historicoCadastros));
-
-  // 5. Baixa automaticamente o CSV atualizado contendo TODOS os cadastros até aqui
-  baixarCSVConsolidado(historicoCadastros);
-
-  // 6. Limpa os dados temporários e os campos do formulário para o próximo uso
-  localStorage.removeItem("apex_fit_temp_cadastro");
-  document.querySelector("form")?.reset();
-
-  alert(
-    "Cadastro finalizado com sucesso! O arquivo CSV acumulado foi baixado.",
-  );
-
-  // Opcional: Redireciona de volta para a primeira página para o próximo cadastro
-  // window.location.href = 'cadastro.html';
-}
-
 function selecionarUnidade(nomeUnidade) {
   localStorage.setItem("unidadeEscolhida", nomeUnidade);
 
@@ -204,59 +144,107 @@ function obterClientes() {
 }
 
 function finalizarPagamento(event) {
-  if (event) {
-    event.preventDefault();
-  }
+  event.preventDefault();
 
-  const campoNome = document.getElementById("nome-cliente");
-  const campoEmail = document.getElementById("email-cliente");
-  const campoTelefone = document.getElementById("telefone-cliente");
+  // 1. Recupera os dados do primeiro cadastro
+  const dadosCadastroRaw = localStorage.getItem("apex_fit_temp_cadastro");
 
-  if (!campoNome || !campoEmail || !campoTelefone) {
-    alert("Não foi possível encontrar os campos do cadastro.");
+  if (!dadosCadastroRaw) {
+    alert(
+      "Dados de cadastro não encontrados. Volte e preencha o formulário inicial.",
+    );
+    window.location.href = "cadastro.html";
     return;
   }
 
-  const nome = campoNome.value.trim();
-  const email = campoEmail.value.trim();
-  const telefone = campoTelefone.value.trim();
+  const pessoa = JSON.parse(dadosCadastroRaw);
 
-  const plano = localStorage.getItem("nomePlano");
-  const valor = localStorage.getItem("valorPlano");
-  const unidade = localStorage.getItem("unidadeEscolhida") || "Não informada";
+  // 2. Recupera os dados da página de pagamento
+  const nome = document.getElementById("nome-cliente").value.trim();
+  const email = document.getElementById("email-cliente").value.trim();
+  const telefone = document.getElementById("telefone-cliente").value.trim();
 
-  if (!nome || !email || !telefone) {
+  const cartao = document.getElementById("cartao").value.trim();
+  const nomeCartao = document.getElementById("nomeCartao").value.trim();
+  const validade = document.getElementById("validade").value;
+
+  // 3. Verifica os campos
+  if (!nome || !email || !telefone || !cartao || !nomeCartao || !validade) {
     alert("Preencha todos os campos.");
     return;
   }
+
+  // 4. Recupera informações do plano e da unidade
+  const plano = localStorage.getItem("nomePlano");
+  const valor = localStorage.getItem("valorPlano");
+  const unidade = localStorage.getItem("unidadeEscolhida") || "Não informada";
 
   if (!plano || !valor) {
     alert("Selecione um plano antes de continuar.");
     return;
   }
 
-  const clientes = obterClientes();
-
+  // 5. Cria o registro completo
   const cliente = {
     id: Date.now(),
     nome: nome,
+    cpf: pessoa.cpf,
+    cep: pessoa.cep,
+    nascimento: pessoa.nascimento,
     email: email,
     telefone: telefone,
     unidade: unidade,
     plano: plano,
     valor: valor,
+    cartaoFinal: cartao.replace(/\D/g, "").slice(-4),
+    nomeCartao: nomeCartao,
+    validade: validade,
     dataCadastro: new Date().toLocaleString("pt-BR"),
   };
+
+  // 6. Salva o histórico de clientes
+  const clientes = obterClientes();
 
   clientes.push(cliente);
 
   try {
     localStorage.setItem("clientes", JSON.stringify(clientes));
+
+    // Recupera o histórico utilizado pelo CSV
+    const historicoCadastros = JSON.parse(
+      localStorage.getItem("apex_fit_base_csv") || "[]",
+    );
+
+    // Adiciona o novo cadastro
+    historicoCadastros.push({
+      ...pessoa,
+      nome: nome,
+      email: email,
+      telefone: telefone,
+      cartaoFinal: cliente.cartaoFinal,
+      nomeCartao: nomeCartao,
+      validade: validade,
+      dataRegistro: cliente.dataCadastro,
+    });
+
+    // Atualiza o histórico
+    localStorage.setItem(
+      "apex_fit_base_csv",
+      JSON.stringify(historicoCadastros),
+    );
   } catch (erro) {
-    alert("Não foi possível salvar o cadastro no navegador.");
+    alert("Não foi possível salvar os dados no navegador.");
     return;
   }
 
+  // 7. Gera o CSV consolidado
+  const historicoCadastros = JSON.parse(
+    localStorage.getItem("apex_fit_base_csv") || "[]",
+  );
+
+  baixarCSVConsolidado(historicoCadastros);
+
+  // 8. Gera o TXT individual
   const conteudo =
     "APEX FIT - CADASTRO DE CLIENTE\n\n" +
     "Código: " +
@@ -264,6 +252,15 @@ function finalizarPagamento(event) {
     "\n" +
     "Nome: " +
     cliente.nome +
+    "\n" +
+    "CPF: " +
+    cliente.cpf +
+    "\n" +
+    "CEP: " +
+    cliente.cep +
+    "\n" +
+    "Data de nascimento: " +
+    cliente.nascimento +
     "\n" +
     "E-mail: " +
     cliente.email +
@@ -286,13 +283,14 @@ function finalizarPagamento(event) {
 
   baixarTXT("cliente_" + cliente.id + ".txt", conteudo);
 
-  alert("Cadastro demonstrativo concluído! O arquivo TXT foi gerado.");
+  // 9. Limpa os dados temporários
+  localStorage.removeItem("apex_fit_temp_cadastro");
 
-  const formulario = document.getElementById("formCadastro");
+  document.getElementById("formCadastro").reset();
 
-  if (formulario) {
-    formulario.reset();
-  }
+  alert(
+    "Cadastro finalizado com sucesso! Os arquivos CSV e TXT foram gerados.",
+  );
 }
 
 function baixarTodosClientes() {
